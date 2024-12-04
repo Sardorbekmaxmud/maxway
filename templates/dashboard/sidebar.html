@@ -1,0 +1,32 @@
+{% load static %}
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="#">
+            <img src="{% static 'dashboard/images/icon/maxway_logo.png' %}" width="86px" height="86px" alt="Maxway Admin" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li class="active">
+                    <a href="{% url 'home-page' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="{% url 'category-list' %}"><i class="fas fa-chart-bar"></i>Categories</a>
+                </li>
+                <li>
+                    <a href="{% url 'product-list' %}"><i class="fas fa-chart-bar"></i>Products</a>
+                </li>
+                <li>
+                    <a href="{% url 'customer-list' %}"><i class="fas fa-chart-bar"></i>Customers</a>
+                </li>
+                <li>
+                    <a href="{% url 'order-list' %}"><i class="fas fa-chart-bar"></i>Orders</a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->

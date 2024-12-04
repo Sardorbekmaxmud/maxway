@@ -1,0 +1,294 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load humanize%}
+{% block content %}
+    <div class="page-container">
+        {%include 'dashboard/userbar.html'%}
+        <!-- HEADER DESKTOP-->
+
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="overview-wrap">
+                                <h2 class="title-1">overview</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t-25">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="overview-item overview-item--c1">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="fa fa-list-alt"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>{{ counts.categories|intcomma}}</h2>
+                                            <span>Category</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <div class="chartjs-size-monitor"
+                                             style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                            <div class="chartjs-size-monitor-expand"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="overview-item overview-item--c2">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="fa fa-list-alt"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>{{ counts.products|intcomma }}</h2>
+                                            <span>Products</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <div class="chartjs-size-monitor"
+                                             style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                            <div class="chartjs-size-monitor-expand"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="overview-item overview-item--c1">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>{{ counts.customers|intcomma }}</h2>
+                                            <span>Customers</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <div class="chartjs-size-monitor"
+                                             style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                            <div class="chartjs-size-monitor-expand"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t-25">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="overview-item overview-item--c2">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="fa fa-list-alt"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>{{ counts.orders|intcomma }}</h2>
+                                            <span>Orders</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <div class="chartjs-size-monitor"
+                                             style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                            <div class="chartjs-size-monitor-expand"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink"
+                                                 style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="au-card m-b-30">
+                                <div class="au-card-inner">
+<!--                                    <h3 class="title-2 m-b-40">Single Bar Chart</h3>-->
+                                    <canvas id="singelBarChart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-lg-6">
+                            <div class="au-card m-b-30">
+                                <div class="au-card-inner">
+                                    <h3 class="title-2 m-b-40">Product by Category</h3>
+                                    <canvas id="pieChart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <h3 style="text-align: center; padding: 5px;">Top sold products</h3>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for top_product in counts.top_sold_pd %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ top_product.name }}</td>
+                                        <td>{{ top_product.total }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
+    </div>
+    {% block javascript %}
+        <script>
+        (function($){
+          try {
+            var ctx = document.getElementById("singelBarChart1");
+            if (ctx) {
+              ctx.height = 290;
+              var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ["Category", "Product", "Customer", "Order"],
+                  datasets: [
+                    {
+                      label: "Maxway dataset",
+                      data: [{{ counts.categories }}, {{ counts.products }}, {{ counts.customers }}, {{ counts.orders }}],
+                      borderColor: [
+                          "#2483f0",
+                          "#2483f0",
+                          "#2483f0",
+                          "#2483f0",
+                      ],
+                      borderWidth: "1",
+                      backgroundColor: [
+                          "#73acf5",
+                          "#73acf5",
+                          "#73acf5",
+                          "#73acf5",
+                      ]
+                    }
+                  ]
+                },
+                options: {
+                  legend: {
+                    position: 'top',
+                    labels: {
+                      fontFamily: 'Poppins'
+                    }
+
+                  },
+                  scales: {
+                    xAxes: [{
+                      ticks: {
+                        fontFamily: "Poppins"
+
+                      }
+                    }],
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true,
+                        fontFamily: "Poppins"
+                      }
+                    }]
+                  }
+                }
+              });
+            }
+
+          } catch (error) {
+            console.log(error);
+          }
+
+          try {
+
+            //pie chart
+            var ctx = document.getElementById("pieChart1");
+            if (ctx) {
+              ctx.height = 250;
+              var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                  datasets: [
+                  {
+                      data: [{% for c in product_by_category %} "{{ c.count }}", {% endfor %}],
+                    backgroundColor: [{% for c in product_by_category %} "#73acf5", {% endfor %}],
+                    hoverBackgroundColor: [{% for c in product_by_category %} "#2483f0", {% endfor %}],
+
+                  }],
+                  labels: [{% for c in product_by_category %} "{{ c.name }}", {% endfor %}],
+
+                },
+                options: {
+                  legend: {
+                    position: 'top',
+                    labels: {
+                      fontFamily: 'Poppins'
+                    }
+
+                  },
+                  responsive: true
+                }
+              });
+            }
+
+
+          } catch (error) {
+            console.log(error);
+          }
+
+        })(jQuery);
+        </script>
+    {% endblock%}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+ <div class="page-container">
+    <!-- HEADER DESKTOP-->
+    {% include 'dashboard/userbar.html' %}
+    <!-- HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Order Detail List</h2>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Count</th>
+                                        <th>Total</th>
+                                        <th>Created At</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in orders %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ order.name }}</td>
+                                        <td>{{ order.category_name }}</td>
+                                        <td>{{ order.price|intcomma }}</td>
+                                        <td>{{ order.count }}</td>
+                                        <td>{{ order.total|intcomma }}</td>
+                                        <td>{{ order.created_at }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="margin-top 3px" class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 16px; border-radius: 5px"><b>Jami: {{ total_price|intcomma }} so'm</b></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+</div>
+{% endblock %}
