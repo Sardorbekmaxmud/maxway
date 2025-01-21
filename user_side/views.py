@@ -14,8 +14,6 @@ def main_page(request):
     orders = []
     order_list = request.COOKIES.get("orders")
     total_price = request.COOKIES.get("total_price", 0)
-    print(f'{order_list=}')
-    print(f'{total_price=}')
 
     if order_list:
         for key, value in json.loads(order_list).items():
@@ -41,14 +39,12 @@ def main_page(request):
 def home_page(request):
     if request.GET:
         product = get_product_by_id(pk=request.GET.get("product_id", 0))
-        print(f'{product=}')
         return JsonResponse(product)
 
 
 def order_page(request):
     if request.GET:
         user = get_user_by_phone_number(request.GET.get('phone_number', 0))
-        print(f"{user=}")
         if user:
             return JsonResponse(user)
 
@@ -67,7 +63,6 @@ def main_order(request):
             form_order = OrderForm(request.POST or None, instance=Order())
             if form_order.is_valid():
                 order = form_order.save(customer=customer)
-                print("order:", order)
                 orders_list = request.COOKIES.get("orders")
 
                 for key, value in json.loads(orders_list).items():
@@ -76,7 +71,6 @@ def main_order(request):
                     counts = value
                     order_product = OrderProduct(
                         amount=counts,
-                        # price=product['price'],
                         product_id=product['id'],
                         order_id=order.id
                     )

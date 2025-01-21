@@ -15,7 +15,9 @@ services:
     command: >
       bash -c "
         python3 manage.py migrate &&
-        python3 manage.py runserver 0.0.0.0:8000
+        python3 manage.py collectstatic --no-input &&
+        python3 manage.py init_superuser &&
+        gunicorn --reload -b 0.0.0.0:8000 config.wsgi --workers 1 --timeout 300 --log-level DEBUG
       "
     volumes:
       - .:/app
